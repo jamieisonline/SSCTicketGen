@@ -1,0 +1,4 @@
+outages https://confluence.ssc-spc.gc.ca/display/SEWS/Current+Outages#OOTab
+
+general laptop pspc hardware: https://confluence.ssc-spc.gc.ca/pages/viewpage.action?pageId=254804269
+
