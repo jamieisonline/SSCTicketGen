@@ -1,7 +1,9 @@
 # SM9 Ticket Generator
 
 This is a vibe coded PyQt6 application for SSC helpdesk troubleshooting + SM9 Ticket generation
+
 This app lists common issues and fills out sections of the SSC EUSD templates in both offical languages.
+
 This app exists to speed up the SM9 ticketing process for common repeatable issues.
 
 **Issues are still being documented and uploaded to this project**
