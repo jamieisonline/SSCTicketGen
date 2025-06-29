@@ -253,7 +253,7 @@ class TroubleshooterApp(QWidget):
         self.steps_label.setStyleSheet(
             "background-color: #101c36; color: #ffffff; border: 1px solid #22345a; font-size: 16px;"
         )
-        self.steps_label.setMinimumHeight(250)
+        self.steps_label.setMinimumHeight(345) # Make the box taller
         steps_layout.addWidget(self.steps_label)
         # Move next button to top
         next_btn = QPushButton("Next")
