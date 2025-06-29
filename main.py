@@ -290,11 +290,6 @@ class TroubleshooterApp(QWidget):
         ticket_layout.addWidget(self.ticket_text)
         ticket_layout.addWidget(copy_btn)
         ticket_layout.addWidget(save_btn)
-        back_btn_ticket = QPushButton("Back", parent=ticket_widget)
-        def back_to_steps(_=None):
-            self.stacked.setCurrentIndex(4)
-        self.connect_with_sound(back_btn_ticket, back_to_steps)
-        ticket_layout.addWidget(back_btn_ticket)
         # Add "New Ticket" button to the ticket page
         new_ticket_btn = QPushButton("New Ticket", parent=ticket_widget)
         def confirm_new_ticket(_=None):
@@ -311,6 +306,12 @@ class TroubleshooterApp(QWidget):
                 self.update_title()
         self.connect_with_sound(new_ticket_btn, confirm_new_ticket)
         ticket_layout.addWidget(new_ticket_btn)
+        # Move back button below the new ticket button
+        back_btn_ticket = QPushButton("Back", parent=ticket_widget)
+        def back_to_steps(_=None):
+            self.stacked.setCurrentIndex(4)
+        self.connect_with_sound(back_btn_ticket, back_to_steps)
+        ticket_layout.addWidget(back_btn_ticket)
         self.stacked.addWidget(ticket_widget)
 
     def copy_ticket_title(self, event=None):
@@ -357,6 +358,7 @@ class TroubleshooterApp(QWidget):
 
         # --- Add "Issue Not Listed" button ---
         issue_not_listed_btn = QPushButton("Issue Not Listed")
+        issue_not_listed_btn.setStyleSheet("background-color: #e75480; color: #fff; font-weight: bold;")  # Pink button
         self.connect_with_sound(issue_not_listed_btn, self.handle_issue_not_listed)
         self.issue_btn_layout.addWidget(issue_not_listed_btn)
         # --------------------------------------

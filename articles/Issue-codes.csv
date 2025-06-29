@@ -1,2 +1,7 @@
-﻿SBL-VPN.j2,STARTBEFORELOGIN
+﻿
 windows-password.j2,AD
+Mobile-Device-Activation.j2,CELLULAR
+MYKEY-VPN.j2,ENTRUST
+SIGMA-password.j2,SIGMA
+WIFI-Basic.j2,WIFI
+sbl-tss-vpn.j2,STARTBEFORELOGIN
