@@ -342,9 +342,13 @@ class TroubleshooterApp(QWidget):
 
         base_path = os.path.dirname(__file__)
         issues_folder = os.path.join(base_path, "articles", branch, device, issue_type_folder)
+        if lang == "Français":
+            issues_folder = os.path.join(base_path, "articles", "french", branch, device, issue_type_folder)
+        else:
+            issues_folder = os.path.join(base_path, "articles", branch, device, issue_type_folder)
 
         issues = []
-        if lang == "English" and os.path.exists(issues_folder):
+        if os.path.exists(issues_folder):
             for fname in os.listdir(issues_folder):
                 if fname.endswith(".j2"):
                     issues.append(os.path.splitext(fname)[0])
@@ -380,10 +384,10 @@ class TroubleshooterApp(QWidget):
         base_path = os.path.dirname(__file__)
 
         # Choose article file based on language
-        if lang == "English":
-            issue_file = os.path.join(base_path, "articles", branch, device, issue_type, f"{issue}.j2")
+        if lang == "Français":
+            issue_file = os.path.join(base_path, "articles", "french", branch, device, issue_type, f"{issue}.j2")
         else:
-            issue_file = os.path.join(base_path, "articles", branch, device, issue_type, f"{issue}-fra.j2")
+            issue_file = os.path.join(base_path, "articles", branch, device, issue_type, f"{issue}.j2")
 
         article_text = ""
         steps_text = ""
