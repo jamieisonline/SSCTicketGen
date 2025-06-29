@@ -6,3 +6,4 @@ SIGMA-password.j2,SIGMA
 WIFI-Basic.j2,WIFI
 sbl-tss-vpn.j2,STARTBEFORELOGIN
 laptop-frozen-nopower.j2,LAPTOP
+Office-M365-basic.j2,MSOFFICE365
