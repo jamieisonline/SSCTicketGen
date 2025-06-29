@@ -5,3 +5,4 @@ MYKEY-VPN.j2,ENTRUST
 SIGMA-password.j2,SIGMA
 WIFI-Basic.j2,WIFI
 sbl-tss-vpn.j2,STARTBEFORELOGIN
+laptop-frozen-nopower.j2,LAPTOP
