@@ -18,10 +18,16 @@ This app exists to speed up the SM9 ticketing process for common repeatable issu
    https://jinja.palletsprojects.com/en/stable/
 
    After python is installed run in powershell:
-   pip install PyQt6
-   pip install Jinja2
 
-2. To Run the app, run the main script: Either open the main.py file with Python or run through powershell:
+      ```powershell
+   pip install PyQt6
+   ```
+      
+   ```powershell
+   pip install Jinja2
+   ```
+
+3. To Run the app, run the main script: Either open the main.py file with Python or run through powershell:
    
    ```powershell
    python main.py
