@@ -26,7 +26,7 @@ This app exists to speed up the SM9 ticketing process for common repeatable issu
    ```powershell
    python main.py
    ```
-Or compile it as an exe with pyinstaller or similar packager. 
+   Or compile it as an exe with pyinstaller or similar packager. 
 
 ----------------------------------------------------------------------------------------------------------------------
  
