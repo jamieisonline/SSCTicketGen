@@ -11,7 +11,12 @@ This app exists to speed up the SM9 ticketing process for common repeatable issu
 ## How to Run
 1. Ensure you have Python, PyQt6, Jinja2 installed
 
-https://www.python.org/downloads/release/python-380/ - https://pypi.org/project/PyQt6/ - https://jinja.palletsprojects.com/en/stable/
+https://www.python.org/downloads/release/python-380/ -
+
+https://pypi.org/project/PyQt6/ - 
+
+https://jinja.palletsprojects.com/en/stable/
+
 After python is installed run:
 pip install PyQt6
 pip install Jinja2
