@@ -192,14 +192,19 @@ class TroubleshooterApp(QWidget):
         self.eu_input.setMinimumHeight(50)  # Make the box taller
         device_layout.addWidget(eu_label)
         device_layout.addWidget(self.eu_input)
-        device_label = QLabel("Device Type:")
+        # Change label to "Type of Issue"
+        type_label = QLabel("Type of Issue:")
         laptop_btn = QPushButton("Laptop")
         mobile_btn = QPushButton("Mobile")
         self.connect_with_sound(laptop_btn, lambda _=None: self.select_device("Laptop"))
         self.connect_with_sound(mobile_btn, lambda _=None: self.select_device("Mobile"))
-        device_layout.addWidget(device_label)
+        device_layout.addWidget(type_label)
         device_layout.addWidget(laptop_btn)
         device_layout.addWidget(mobile_btn)
+        # Add Status Update button
+        status_update_btn = QPushButton("Status Update")
+        self.connect_with_sound(status_update_btn, self.goto_ticket_page)
+        device_layout.addWidget(status_update_btn)
         self.add_back_button(device_layout, 0)
         self.stacked.addWidget(device_widget)
 
