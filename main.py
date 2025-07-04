@@ -83,18 +83,6 @@ class TroubleshooterApp(QWidget):
         copyright_label.setOpenExternalLinks(True)
         footer_layout.addWidget(copyright_label, alignment=Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
         footer_layout.addStretch(1)
-        # Add 'spintohou.gif' at the bottom right
-        spintohou_gif = QLabel()
-        try:
-            movie = QMovie("spintohou.gif")
-            if not movie.isValid():
-                raise Exception("GIF not found")
-            movie.setScaledSize(QSize(60, 60))
-            spintohou_gif.setMovie(movie)
-            movie.start()
-        except Exception:
-            pass
-        footer_layout.addWidget(spintohou_gif, alignment=Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
         self.layout.addLayout(footer_layout)
 
     def play_button_sound(self):
