@@ -45,7 +45,7 @@ Helpful links:
 
    - Need git installed to clone the repo
    - Open the `installer` folder in your SSCTicketGen project directory.
-   - Run the batch file (e.g., `install_sscticketgen.bat`).
+   - Run the batch file `sscticketgen-autoinstall.bat`.
 
    **Follow the Prompts**
    - The installer will ask if you want to clone the SSCTicketGen repo.
