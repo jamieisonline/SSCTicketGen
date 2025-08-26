@@ -10,3 +10,7 @@ Office-M365-basic.j2,MSOFFICE365
 outlook-profile-basic.j2,OUTLOOK
 Phone-Replacement.j2,CELLULAR
 shared-drive-U-missing.j2,OES
+cannot-decrypt-emails.j2,OUTLOOK
+company-portal-missing.j2,COMPANYPORTAL
+myitstore-requests.j2,MYITPORTAL
+
