@@ -1,4 +1,19 @@
 @echo off
+
+REM Check if Python is installed
+where python >nul 2>nul
+if %errorlevel% neq 0 (
+    echo Python is not installed.
+    echo Please download and install Python from https://www.python.org/downloads/
+    start https://www.python.org/downloads/
+    echo After installing Python, re-run this script.
+    pause
+    exit /b
+)
+
+REM Install pip if not present
+python -m ensurepip --default-pip
+
 REM Ask if user wants to clone the repo
 set /p clone_choice="Do you want to clone the SSCTicketGen repo from GitHub? (Y/N): "
 if /I "%clone_choice%" NEQ "Y" (
@@ -15,19 +30,6 @@ if not exist "%repo_dir%" (
 )
 
 cd /d "%repo_dir%"
-
-REM Install Python if not present
-where python >nul 2>nul
-if %errorlevel% neq 0 (
-    echo Python not found. Downloading and installing Python...
-    powershell -Command "Start-Process 'https://www.python.org/ftp/python/3.11.8/python-3.11.8-amd64.exe' -Wait"
-    echo Please install Python, then re-run this script.
-    pause
-    exit /b
-)
-
-REM Install pip if not present
-python -m ensurepip --default-pip
 
 REM Clone the GitHub repo
 if not exist SSCTicketGen (
@@ -46,7 +48,8 @@ cd SSCTicketGen
 
 REM Install dependencies
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m pip install PyQt6
+python -m pip install Jinja2
 
 REM Open the GitHub page in browser
 start https://github.com/jamieisonline/SSCTicketGen
