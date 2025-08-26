@@ -68,11 +68,9 @@ pyinstaller --onefile main.py
 ```
 
 ---
-
-## 📷 Screenshot
-
 <p align="center">
-  https://github.com/jamieisonline/SSCTicketGen/blob/main/Screenshot%202025-06-29%20163030.png
+  
+   [Tool]([https://jina.ai/serve/get-started/install/](https://github.com/jamieisonline/SSCTicketGen/blob/main/Screenshot%202025-06-29%20163030.png))
 </p>
 
 ---
