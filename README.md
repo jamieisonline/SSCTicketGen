@@ -69,7 +69,7 @@ pyinstaller --onefile main.py
 
 ---
 <p align="center">
-   <img src="https://jina.ai/serve/get-started/install/](https://github.com/jamieisonline/SSCTicketGen/blob/main/Screenshot%202025-06-29%20163030.png">
+  https://github.com/jamieisonline/SSCTicketGen/blob/main/Screenshot%202025-06-29%20163030.png
 </p>
 
 ---
