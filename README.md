@@ -69,7 +69,8 @@ pyinstaller --onefile main.py
 
 ---
 <p align="center">
-  https://github.com/jamieisonline/SSCTicketGen/blob/main/Screenshot%202025-06-29%20163030.png
+  
+   ![]([http://url/to/img.png](https://github.com/jamieisonline/SSCTicketGen/blob/main/Screenshot%202025-06-29%20163030.png))
 </p>
 
 ---
