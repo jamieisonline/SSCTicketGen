@@ -17,6 +17,8 @@ This app exists to speed up the SM9 ticketing process for common repeatable issu
 
    https://jinja.palletsprojects.com/en/stable/
 
+    1A. to do so please ensure the instalation is for the local user as if you install system wide it will need admin rights
+
    After python is installed run in powershell:
 
       ```powershell
