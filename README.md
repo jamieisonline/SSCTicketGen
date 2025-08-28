@@ -33,6 +33,8 @@ Open PowerShell and run:
 ```powershell
 pip install PyQt6
 pip install Jinja2
+git clone https://github.com/jamieisonline/SSCTicketGen
+cd SSCTicketGen/
 ```
 
 Helpful links:
