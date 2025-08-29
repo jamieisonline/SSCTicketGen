@@ -223,7 +223,7 @@ class TroubleshooterApp(QWidget):
         self.add_back_button(issue_layout, 1)
         self.stacked.addWidget(issue_widget)
 
-        # Step 6: Issue List (scrollable)
+        # Step 6: Issue List (scrollable + search)
         self.issue_list_widget = QWidget()
         issue_list_layout = QVBoxLayout(self.issue_list_widget)
         self.issue_clarification_label = QLabel("")
@@ -231,6 +231,12 @@ class TroubleshooterApp(QWidget):
         issue_list_layout.addWidget(self.issue_clarification_label)
         self.issue_list_label = QLabel("Select Issue (placeholder):")
         issue_list_layout.addWidget(self.issue_list_label)
+
+        # Add search bar above the issue list
+        self.issue_search_bar = QLineEdit()
+        self.issue_search_bar.setPlaceholderText("Search issues...")
+        issue_list_layout.addWidget(self.issue_search_bar)
+        self.issue_search_bar.textChanged.connect(self.filter_issues)
 
         # Make issue buttons scrollable
         scroll_area = QScrollArea()
@@ -339,24 +345,18 @@ class TroubleshooterApp(QWidget):
         issue_type_folder = issue_type.lower()
 
         base_path = os.path.dirname(__file__)
-        issues_folder = os.path.join(base_path, "articles", branch, device, issue_type_folder)
         if lang == "Français":
             issues_folder = os.path.join(base_path, "articles", "french", branch, device, issue_type_folder)
         else:
             issues_folder = os.path.join(base_path, "articles", branch, device, issue_type_folder)
 
-        issues = []
+        self.issues = []
         if os.path.exists(issues_folder):
             for fname in os.listdir(issues_folder):
                 if fname.endswith(".j2"):
-                    issues.append(os.path.splitext(fname)[0])
+                    self.issues.append(os.path.splitext(fname)[0])
 
-        for issue in issues:
-            pretty_label = issue.replace("-", " ").replace("_", " ").title()
-            btn = QPushButton(pretty_label)
-            self.connect_with_sound(btn, lambda _, iss=issue: self.select_issue(iss))
-            self.issue_btn_layout.addWidget(btn)
-            self.issue_btns.append(btn)
+        self.display_issues(self.issues)
 
         # --- Add "Issue Not Listed" button ---
         issue_not_listed_btn = QPushButton("Issue Not Listed")
@@ -369,6 +369,25 @@ class TroubleshooterApp(QWidget):
         self.issue_clarification_label.setText(f"{self.selected_device} - {issue_type} Issues" if self.selected_device and issue_type else "")
         self.stacked.setCurrentIndex(3)
         self.update_title()
+
+    def display_issues(self, issues):
+        # Remove all issue buttons except the last one ("Issue Not Listed")
+        for i in reversed(range(self.issue_btn_layout.count())):
+            widget = self.issue_btn_layout.itemAt(i).widget()
+            if widget and widget.text() != "Issue Not Listed":
+                widget.setParent(None)
+        self.issue_btns = []
+        for issue in issues:
+            pretty_label = issue.replace("-", " ").replace("_", " ").title()
+            btn = QPushButton(pretty_label)
+            self.connect_with_sound(btn, lambda _, iss=issue: self.select_issue(iss))
+            self.issue_btn_layout.insertWidget(self.issue_btn_layout.count()-1, btn)
+            self.issue_btns.append(btn)
+
+    def filter_issues(self, text):
+        text = text.lower()
+        filtered = [issue for issue in getattr(self, 'issues', []) if text in issue.lower()]
+        self.display_issues(filtered)
 
     def select_issue(self, issue):
         self.selected_issue = issue
