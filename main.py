@@ -3,7 +3,7 @@ import os
 import datetime
 import csv
 from PyQt6.QtWidgets import (
-    QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QComboBox, QStackedWidget, QTextEdit, QLineEdit, QHBoxLayout, QSpinBox, QTextBrowser, QMessageBox
+    QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QComboBox, QStackedWidget, QTextEdit, QLineEdit, QHBoxLayout, QSpinBox, QTextBrowser, QMessageBox, QScrollArea
 )
 from PyQt6.QtCore import Qt, QSize, QUrl
 from PyQt6.QtMultimedia import QSoundEffect
@@ -14,6 +14,7 @@ class TroubleshooterApp(QWidget):
     def __init__(self):
         super().__init__()
         self.issue_code_map = self.load_issue_code_map()
+        self.issue_btns = []  # <-- Add this line to fix AttributeError
         self.setWindowTitle("SM9 Ticket Generator")
         self.setMinimumSize(400, 350)
         self.setStyleSheet("""
@@ -222,19 +223,23 @@ class TroubleshooterApp(QWidget):
         self.add_back_button(issue_layout, 1)
         self.stacked.addWidget(issue_widget)
 
-        # Step 6: Issue List (placeholder)
+        # Step 6: Issue List (scrollable)
         self.issue_list_widget = QWidget()
         issue_list_layout = QVBoxLayout(self.issue_list_widget)
-        # Clarification label for device and issue type
         self.issue_clarification_label = QLabel("")
         self.issue_clarification_label.setStyleSheet("font-size: 14px; font-weight: bold; margin-bottom: 6px;")
         issue_list_layout.addWidget(self.issue_clarification_label)
         self.issue_list_label = QLabel("Select Issue (placeholder):")
-        # Placeholder: VPN, Email, Other for software; Battery, Screen, Other for hardware
-        self.issue_btns = []
         issue_list_layout.addWidget(self.issue_list_label)
-        self.issue_btn_layout = QVBoxLayout()
-        issue_list_layout.addLayout(self.issue_btn_layout)
+
+        # Make issue buttons scrollable
+        scroll_area = QScrollArea()
+        scroll_area.setWidgetResizable(True)
+        scroll_content = QWidget()
+        self.issue_btn_layout = QVBoxLayout(scroll_content)
+        scroll_area.setWidget(scroll_content)
+        issue_list_layout.addWidget(scroll_area)
+
         self.add_back_button(issue_list_layout, 2)
         self.stacked.addWidget(self.issue_list_widget)
 
