@@ -72,7 +72,7 @@ pyinstaller --onefile main.py
 ---
 <p align="center">
   
-   ![](https://github.com/jamieisonline/SSCTicketGen/blob/main/tool.gif)
+   ![](https://github.com/jamieisonline/SSCTicketGen/blob/main/assets/tool.gif)
 </p>
 
 ---

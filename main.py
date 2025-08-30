@@ -40,10 +40,12 @@ class TroubleshooterApp(QWidget):
                 color: #ffffff;
             }
         """)
+        assets_path = os.path.join(os.path.dirname(__file__), "assets")
+
         # Sound effect setup
         self.button_sound = QSoundEffect()
         try:
-            self.button_sound.setSource(QUrl.fromLocalFile("buttonsound.wav"))
+            self.button_sound.setSource(QUrl.fromLocalFile(os.path.join(assets_path, "buttonsound.wav")))
         except Exception:
             pass
         self.button_sound.setVolume(0.5)
@@ -68,7 +70,7 @@ class TroubleshooterApp(QWidget):
         # SSC Logo on the left
         self.logo_label = QLabel()
         try:
-            logo_pixmap = QPixmap("SSC-Logo-Purple-Leaf.png")
+            logo_pixmap = QPixmap(os.path.join(assets_path, "SSC-Logo-Purple-Leaf.png"))
             if not logo_pixmap.isNull():
                 self.logo_label.setPixmap(logo_pixmap.scaled(60, 60, aspectRatioMode=Qt.AspectRatioMode.KeepAspectRatio, transformMode=Qt.TransformationMode.SmoothTransformation))
         except Exception:
